@@ -1,0 +1,143 @@
+/* stile per Sfuocare l'app */
+.main-app.blurred {
+  /* Prefissi per Safari */
+  -webkit-filter: blur(8px) brightness(0.7);
+  filter: blur(8px) brightness(0.7);
+  
+  -webkit-user-select: none; /* Prefisso per Safari */
+  user-select: none;
+  
+  pointer-events: none;
+  transition: filter 0.3s ease-out;
+}
+
+/* Stile del PopUp Modale (CON PREFISSI) */
+.login-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px); 
+  background-color: rgba(0, 0, 0, 0.4); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+/* Box interno del Modal */
+.login-modal-content {
+  background: rgba(30, 30, 30, 0.75); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px 40px;
+  text-align: center;
+  color: #f0f0f0;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.login-modal-content h2 {
+  margin-top: 0;
+  color: white;
+}
+.login-modal-content p {
+  color: #ccc;
+}
+
+
+/* Stile Info Utente (Stato Loggato) */
+.user-info-container {
+  position: absolute;
+  top: 20px;   /* Stessa posizione del tuo header originale */
+  right: 40px;
+  z-index: 50; /* Sopra l'app, ma sotto il modal di login */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #f0f0f0;
+}
+
+
+/* Stile "Liquid Glass" per i bottoni */
+.btn-glass-login,
+.btn-glass-logout {
+  background: rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-glass-login {
+  background: rgba(66, 133, 244, 0.2); 
+  border-color: rgba(66, 133, 244, 0.5);
+}
+
+.btn-glass-logout {
+  padding: 8px 16px; 
+  font-size: 14px;
+}
+
+.btn-glass-login:hover,
+.btn-glass-logout:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; /* Cambiato da absolute */
+  z-index: 50;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-icon {
+  font-size: 24px;
+  color: #f0f0f0;
+  cursor: pointer;
+}
+
+.navbar-logo {
+  height: 60px; 
+  width: 50px;
+}
+
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; /* Tutta l'altezza */
+  width: 280px; /* Larghezza del menu */
+  background-color: #202124; /* Sfondo scuro (tipo Google) */
+  z-index: 200; /* Sopra tutto, tranne forse il modal di login */
+  border-right: 1px solid #444;
+
+  /* Animazione (opzionale, ma carina) */
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

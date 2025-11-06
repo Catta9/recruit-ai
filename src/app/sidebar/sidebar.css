@@ -1,0 +1,35 @@
+.sidebar-nav {
+  padding: 20px;
+}
+
+.sidebar-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 1.2rem;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-nav a:hover {
+  background-color: #333;
+  color: white;
+}
+
+/* Stile per il link della pagina attiva */
+.sidebar-nav a.active {
+  background-color: #4285F4; 
+  color: white;
+  font-weight: bold;
+}

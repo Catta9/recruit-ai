@@ -1,7 +1,38 @@
-<div class="background-overlay"></div> 
-<div class="app-content"> 
-    <app-header></app-header>
-    <main class="content">
-        <app-analysis></app-analysis>
-    </main>
-</div>
+<main class="main-app" [class.blurred]="!(user$ | async)">
+
+  <nav class="navbar">
+    <div class="navbar-left">
+      <span class="menu-icon" (click)="toggleSidebar()">☰</span> 
+      <img src="assets/logo.png" alt="Recruit AI Logo" class="navbar-logo">
+    </div>
+    </nav>
+
+  <router-outlet></router-outlet>
+
+</main>
+
+<!-- If per Sidebar -->
+ @if (isSidebarOpen()) {
+  <div class="sidebar-container">
+    <app-sidebar></app-sidebar>
+  </div>
+}
+
+
+<!-- If Else per il Login -->
+@if (user$ | async; as user) {
+  <div class="user-info-container">
+    <span>Ciao, {{ user.displayName }}</span>
+    <button (click)="logout()" class="btn-glass-logout">Logout</button>
+  </div>
+} @else {
+  <div class="login-modal-backdrop">
+    <div class="login-modal-content">
+      <h2>Accesso Richiesto</h2>
+      <p>Per utilizzare lo strumento di analisi, accedi con il tuo account Google.</p>
+      <button (click)="login()" class="btn-glass-login">
+        Login con Google
+      </button>
+    </div>
+  </div>
+}
