@@ -1,0 +1,137 @@
+.analysis-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: clamp(1200px, 92vw, 2200px);
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.analysis-container h2 {
+  font-size: 2.2em;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* --- Layout a 2 Colonne --- */
+.inputs-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 40px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #f5f5f5;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  border-radius: 15px; 
+  
+  /* Sfondo trasparente */
+  background-color: rgba(10, 10, 10, 0.55); 
+
+  /* Effetto vetro "opaco" (sfocatura) */
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  
+  padding: 25px;
+  font-family: inherit;
+  font-size: 1.1em;
+  color: #f5f5f5;
+  resize: vertical;
+  box-sizing: border-box;
+  min-height: 400px;
+  transition: all 0.2s ease-in-out;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(30, 30, 30, 0.6);
+}
+
+/* --- Pulsante con lo stesso effetto "Liquid Glass" --- */
+button {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  background-color: rgba(10, 10, 10, 0.45); /* Sfondo trasparente */
+  backdrop-filter: blur(25px); /* Effetto vetro "opaco" */
+  -webkit-backdrop-filter: blur(25px);
+
+  color: #ffffff; /* Azzurro */
+  padding: 15px 50px; 
+  font-size: 1.2em;
+  font-weight: 700;
+  cursor: pointer;
+  width: 450px;
+  max-width: 100%;
+  margin-top: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 1000px) {
+  .inputs-wrapper {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+  }
+  
+  .input-group {
+    min-width: 100%; /* Permette al gruppo di restringersi */
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 250px;
+    width: 100%; /* Assicura che la textarea si adatti */
+  }
+  
+  button {
+    width: 100%;
+  }
+
+  .analysis-container {
+    padding: 0; 
+  }
+
+  .analysis-container h2{
+    text-align: center;
+    font-size: 1.6em;
+  }
+}
+
+
+/* Media query a 1400px */
+@media (max-width: 1400px) {
+  .inputs-wrapper {
+    gap: 25px;
+    margin-top: 20px;
+  }
+}

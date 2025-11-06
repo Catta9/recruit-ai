@@ -1,0 +1,21 @@
+<div class="analysis-container">
+
+  <h2>Esegui l'analisi</h2>
+
+  <div class="inputs-wrapper">
+    
+    <div class="input-group">
+      <label for="jd-text">Job Description</label>
+      <textarea [(ngModel)]="jobDescription" id="jd-text" placeholder="Incolla qui la descrizione del lavoro..."></textarea>
+    </div>
+
+    <div class="input-group">
+      <label for="cv-text">Curriculum Vitae</label>
+      <textarea [(ngModel)]="candidateCV" id="cv-text" placeholder="Incolla qui il testo del CV del candidato..."></textarea>
+    </div>
+
+  </div>
+
+  <button (click)="analyze()">Analizza</button>
+
+</div>

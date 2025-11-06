@@ -1,0 +1,76 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Centra il titolo */
+  padding: 40px 20px; /* Spaziatura interna */
+  color: white; /* Testo "Recruit" */
+}
+
+header h1 {
+  font-size: 3.5em; 
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+header h1.ai-gradient {
+  display: inline-block;            
+  background: linear-gradient(90deg, #ff69b4 0%, #ff69b4 30%,  #00bfff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  color: transparent;
+  text-shadow: 0 0 0.01px rgba(0,0,0,0.01);
+}
+
+
+header p {
+  font-size: 1em;
+  margin-top: 10px;
+  color: #ccc; /* Colore leggermente più scuro per il sottotitolo */
+}
+
+.typewriter-container {
+  /* Mantiene il contenitore centrato anche se il testo è corto */
+  display: inline-block; 
+}
+
+p.typewriter {
+  font-size: 1 em;
+  margin-top: 10px;
+  color: #ccc;
+  
+  /* --- Animazione Macchina da Scrivere --- */
+
+  overflow: hidden; /* Nasconde il testo che non è stato ancora "scritto" */
+  border-right: .10em solid #00bfff; /* Il cursore (usa il colore azzurro) */
+  white-space: nowrap; /* Impedisce al testo di andare a capo */
+  margin: 0 auto; /* Centra l'effetto */
+  letter-spacing: .05em; /* Spaziatura tra le lettere */
+
+  /* Animazione per il testo e per il cursore */
+  animation: blink-caret .75s step-end infinite;
+}
+
+/* Animazione del cursore lampeggiante */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #00bfff; }
+}
+
+
+@media (max-width: 600px) {
+  
+  header h1 {
+    font-size: 2.5em; /* Rimpicciolisce il titolo */
+  }
+
+  p.typewriter {
+    white-space: normal; /* Permette al testo di andare a capo */
+    border-right: none; /* Rimuove il cursore che non ha senso su più righe */
+    animation: none; /* Disattiva l'animazione del lampeggio */
+    width: 100%; /* Occupa la larghezza disponibile */
+    overflow: visible;
+  }
+}
