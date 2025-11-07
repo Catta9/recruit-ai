@@ -1,14 +1,12 @@
 :host {
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+  display: block;
   width: 100%;
-  min-height: 100vh;
   box-sizing: border-box;
   position: relative; 
   padding-bottom: 50px; 
 }
 
+/* Sfondo sfuocato (già presente e corretto) */
 .blurred-background {
   position: fixed; 
   top: 0;
@@ -21,36 +19,44 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  
   filter: blur(8px) brightness(0.6) grayscale(0.3); 
   -webkit-filter: blur(8px) brightness(0.6) grayscale(0.3);
 }
 
-.analysis-container {
+/* Wrapper per centrare il contenuto */
+.analysis-content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: clamp(1200px, 92vw, 2200px);
-  margin: 30px auto;
-  padding: 0 20px;
+  padding: 20px;
 }
 
-.analysis-container h2 {
+.analysis-content {
+  width: 100%;
+  max-width: 1200px; /* Larghezza massima del contenuto */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 25px 40px;
+  font-family: inherit;
+  color: #f5f5f5;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.analysis-content h2 {
   font-size: 2.2em;
   font-weight: 600;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 /* --- Layout a 2 Colonne --- */
 .inputs-wrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
   width: 100%;
   gap: 40px;
-  margin-top: 80px;
+  margin-top: 20px;
   margin-bottom: 40px;
 }
 
@@ -58,7 +64,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-width: 400px;
+  min-width: 300px;
 }
 
 .input-group label {
@@ -68,7 +74,7 @@
   font-weight: 600;
   color: #f5f5f5;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 
@@ -76,9 +82,9 @@ textarea {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.2); 
   border-radius: 15px; 
-  
-  /* Sfondo trasparente */
   background-color: rgba(10, 10, 10, 0.55); 
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   padding: 25px;
   font-family: inherit;
   font-size: 1.1em;
@@ -95,14 +101,14 @@ textarea:focus {
   background-color: rgba(30, 30, 30, 0.6);
 }
 
-/* --- Pulsante con lo stesso effetto "Liquid Glass" --- */
+/* --- Pulsante --- */
 button {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;
-  background-color: rgba(10, 10, 10, 0.45); /* Sfondo trasparente */ 
-  -webkit-backdrop-filter: blur(25px);
+  background-color: rgba(10, 10, 10, 0.45);
   backdrop-filter: blur(25px);
-  color: #ffffff; /* Azzurro */
+  -webkit-backdrop-filter: blur(25px);
+  color: #ffffff;
   padding: 15px 50px; 
   font-size: 1.2em;
   font-weight: 700;
@@ -113,11 +119,56 @@ button {
   transition: all 0.2s ease-in-out;
 }
 
-button:hover {
+button:hover:not(:disabled) {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* --- Mobile Responsiveness --- */
+/* Stile per il pulsante disabilitato */
+button:disabled {
+  background-color: rgba(50, 50, 50, 0.5);
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: rgba(211, 47, 47, 0.2);
+  border: 1px solid #D32F2F;
+  color: #FFCDD2;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.result-section {
+  background: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.result-section h3 {
+  margin-top: 0;
+  color: #4285F4; /* Blu Google */
+}
+.result-section h4 {
+  color: #f0f0f0;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 5px;
+}
+.result-section ul {
+  padding-left: 20px;
+}
+.result-section li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* --- Mobile (già presente) --- */
 @media (max-width: 1000px) {
   .inputs-wrapper {
     flex-direction: column;
@@ -126,35 +177,26 @@ button:hover {
   }
   
   .input-group {
-    min-width: 100%; /* Permette al gruppo di restringersi */
+    min-width: 100%;
     width: 100%;
   }
 
   textarea {
     min-height: 250px;
-    width: 90%; /* Assicura che la textarea si adatti */
-    margin: 20px;
+    width: 100%; /* Già al 100% per il .input-group */
+    margin: 0;
   }
   
   button {
-    width: 90%;
+    width: 100%;
   }
 
-  .analysis-container {
-    padding: 0; 
+  .analysis-content {
+    padding: 20px;
   }
 
-  .analysis-container h2{
+  .analysis-content h2 {
     text-align: center;
     font-size: 1.6em;
-  }
-}
-
-
-/* Media query a 1400px */
-@media (max-width: 1400px) {
-  .inputs-wrapper {
-    gap: 25px;
-    margin-top: 20px;
   }
 }

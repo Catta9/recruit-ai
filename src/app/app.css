@@ -3,7 +3,6 @@
   filter: blur(8px) brightness(0.7);
   -webkit-user-select: none; 
   user-select: none;
-  
   pointer-events: none;
   transition: filter 0.3s ease-out;
 }
@@ -162,7 +161,7 @@ position: fixed;
   /* Impostiamo la posizione relativa per permettere la transizione */
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
   
   /* L'animazione di "slittamento" */
   transition: transform 0.3s ease-out;

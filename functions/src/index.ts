@@ -7,7 +7,7 @@ import { VertexAI } from "@google-cloud/vertexai";
 const vertexAI = new VertexAI({ project: process.env.GCLOUD_PROJECT, location: "us-central1" });
 
 //modello più economico e veloce per questo tipo di analisi
-const model = vertexAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+const model = vertexAI.getGenerativeModel({ model: "gemini-1.5-flash-001" });
 
 // 2. Definisci la tua Cloud Function richiamabile dal frontend
 export const analyzeMatch = onCall(async (request) => {

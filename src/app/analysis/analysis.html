@@ -1,23 +1,57 @@
 <div class="blurred-background"></div>
-<div class="analysis-container">
 
-  <app-header></app-header>
-  <h2>Esegui l'analisi</h2>
+<div class="analysis-content-wrapper">
+  <div class="analysis-content">
+    <app-header></app-header>
+    <h2>Esegui l'analisi</h2>
 
-  <div class="inputs-wrapper">
+    <div class="inputs-wrapper">
+      <div class="input-group">
+        <label for="jd-text">Job Description</label>
+        <textarea [(ngModel)]="jobDescription" id="jd-text" placeholder="Incolla qui la descrizione del lavoro..."></textarea>
+      </div>
+
+      <div class="input-group">
+        <label for="cv-text">Curriculum Vitae</label>
+        <textarea [(ngModel)]="candidateCV" id="cv-text" placeholder="Incolla qui il testo del CV del candidato..."></textarea>
+      </div>
+    </div>
+
+    <button (click)="analyze()" [disabled]="isLoading">
+      @if (isLoading) {
+        <span>Analisi in corso...</span>
+      } @else {
+        <span>Analizza</span>
+      }
+    </button>
     
-    <div class="input-group">
-      <label for="jd-text">Job Description</label>
-      <textarea [(ngModel)]="jobDescription" id="jd-text" placeholder="Incolla qui la descrizione del lavoro..."></textarea>
+    @if (error) {
+      <div class="error-message">
+        <strong>Errore:</strong> {{ error }}
+      </div>
+    }
+
+    @if (result) {
+      <div class="result-section">
+        <h3>Punteggio: {{ result.matchScore }} / 100</h3>
+        
+        <h4>Riepilogo</h4>
+        <p>{{ result.summary }}</p>
+        
+        <h4>Punti di Forza</h4>
+        <ul>
+          @for (strength of result.strengths; track $index) {
+            <li>{{ strength }}</li>
+          }
+        </ul>
+        
+        <h4>Aree da Approfondire</h4>
+        <ul>
+           @for (gap of result.gaps; track $index) {
+            <li>{{ gap }}</li>
+          }
+        </ul>
+      </div>
+    }
     </div>
-
-    <div class="input-group">
-      <label for="cv-text">Curriculum Vitae</label>
-      <textarea [(ngModel)]="candidateCV" id="cv-text" placeholder="Incolla qui il testo del CV del candidato..."></textarea>
-    </div>
-
-  </div>
-
-  <button (click)="analyze()">Analizza</button>
-
 </div>
