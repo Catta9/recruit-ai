@@ -161,8 +161,7 @@ position: fixed;
   /* Impostiamo la posizione relativa per permettere la transizione */
   position: relative;
   width: 100%;
-  max-height: 100vh;
-  
+  height: 100vh;
   /* L'animazione di "slittamento" */
   transition: transform 0.3s ease-out;
 }

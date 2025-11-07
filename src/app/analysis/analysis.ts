@@ -17,8 +17,8 @@ import { Router } from '@angular/router';
 
 export class Analysis {
 
-  jobDescription: string = ''; 
-  candidateCV: string = ''; 
+  jd: string = ''; 
+  cv: string = ''; 
   
   isLoading: boolean = false;  
   error: string | null = null; 
@@ -40,7 +40,7 @@ export class Analysis {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state as { jd: string };
     if (state && state.jd) {
-      this.jobDescription = state.jd;
+      this.jd = state.jd;
     }
   }
 
@@ -49,8 +49,8 @@ export class Analysis {
     this.error = null;
     this.result = null;
 
-    // `this.jobDescription` e `this.candidateCV` sono stringhe, non funzioni
-    if (!this.jobDescription || !this.candidateCV) { 
+    // `this.jd` e `this.cv` sono stringhe, non funzioni
+    if (!this.jd || !this.cv) { 
       this.error = 'Per favore, compila entrambi i campi.';
       this.isLoading = false;
       return;
@@ -58,8 +58,8 @@ export class Analysis {
 
     try {
       const analyzeMatchFn = httpsCallable(this.functions, 'analyzeMatch');
-      // Passa le stringhe `this.jobDescription` e `this.candidateCV`
-      const response: any = await analyzeMatchFn({ jd: this.jobDescription, cv: this.candidateCV }); 
+      // Passa le stringhe `this.jd` e `this.cv`
+      const response: any = await analyzeMatchFn({ jd: this.jd, cv: this.cv }); 
       this.result = response.data;
 
       // --- LOGICA DI SALVATAGGIO  ---
@@ -73,8 +73,8 @@ export class Analysis {
         userId: user.uid,
         createdAt: serverTimestamp(),
         // Usa le variabili stringa
-        jd_snippet: this.jobDescription.substring(0, 50) + "...", 
-        cv_snippet: this.candidateCV.substring(0, 50) + "...",
+        jd_snippet: this.jd.substring(0, 50) + "...", 
+        cv_snippet: this.cv.substring(0, 50) + "...",
       };
 
       const collectionRef = collection(this.firestore, `users/${user.uid}/analyses`);
