@@ -45,11 +45,10 @@ h2 {
 .analysis-list {
   margin-top: 20px;
   display: flex;
-  flex-wrap: nowrap;
-  flex-basis: 100vw;
+  flex-wrap: wrap;
   gap: 20px;
   width: 100%;
-  border-radius: 15px; 
+  border-radius: 15px;
   font-family: inherit;
   font-size: 1.1em;
   color: #f5f5f5;
@@ -64,8 +63,7 @@ h2 {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  flex-basis: 30vw;
-  max-height: 30vh;
+  flex: 1 1 320px;
 }
 
 .analysis-card h3 {
