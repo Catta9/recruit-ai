@@ -3,8 +3,17 @@ import { onCall, HttpsError } from "firebase-functions/v2/https";
 import { VertexAI } from "@google-cloud/vertexai";
 
 // 1. Inizializza il client Vertex AI
+const projectId = process.env.GOOGLE_CLOUD_PROJECT ?? process.env.GCLOUD_PROJECT;
 
-const vertexAI = new VertexAI({ project: process.env.GCLOUD_PROJECT, location: "us-central1" });
+if (!projectId) {
+  console.error("ID progetto non configurato. Imposta GOOGLE_CLOUD_PROJECT o GCLOUD_PROJECT.");
+  throw new HttpsError(
+    'internal',
+    "Configurazione del progetto mancante. Contatta l'amministratore."
+  );
+}
+
+const vertexAI = new VertexAI({ project: projectId, location: "us-central1" });
 
 //modello più economico e veloce per questo tipo di analisi
 const model = vertexAI.getGenerativeModel({ model: "gemini-1.5-flash-001" });
