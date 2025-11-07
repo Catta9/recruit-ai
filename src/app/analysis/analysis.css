@@ -40,7 +40,7 @@
 }
 
 .analysis-content h2 {
-  font-size: 2.2em;
+  font-size: var(--title-subsection);
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -193,7 +193,7 @@ button:disabled {
 
   .analysis-content h2 {
     text-align: center;
-    font-size: 1.6em;
+    font-size: var(--title-subsection-sm);
   }
 }
 
