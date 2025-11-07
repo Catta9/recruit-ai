@@ -1,3 +1,12 @@
+:root {
+  --title-hero: 3.5rem;
+  --title-hero-sm: 2.5rem;
+  --title-section: 3rem;
+  --title-section-sm: 2rem;
+  --title-subsection: 2.2rem;
+  --title-subsection-sm: 1.6rem;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

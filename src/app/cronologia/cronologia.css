@@ -28,7 +28,7 @@
 }
 
 h2 {
-  font-size: 3em; 
+  font-size: var(--title-section);
   margin: 0;
   font-weight: 700;
   letter-spacing: 2px;
@@ -134,7 +134,7 @@ h2 {
     max-height: none;
   }
   h2 {
-    font-size: 2em; 
+    font-size: var(--title-section-sm);
     margin: 0;
     font-weight: 700;
     letter-spacing: 2px;
