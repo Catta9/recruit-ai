@@ -99,7 +99,9 @@ textarea:focus {
 button {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 15px;
-  background-color: rgba(10, 10, 10, 0.45); /* Sfondo trasparente */
+  background-color: rgba(10, 10, 10, 0.45); /* Sfondo trasparente */ 
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
   color: #ffffff; /* Azzurro */
   padding: 15px 50px; 
   font-size: 1.2em;

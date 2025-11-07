@@ -29,5 +29,12 @@
   </div>
 } @else {
   <div class="login-modal-backdrop">
+    <div class="login-modal-content">
+      <h2>Accesso Richiesto</h2>
+      <p>Per utilizzare lo strumento di analisi, accedi con il tuo account Google.</p>
+      <button (click)="login()" class="btn-glass-login">
+        Login con Google
+      </button>
     </div>
+  </div>
 }
