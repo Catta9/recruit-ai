@@ -6,25 +6,6 @@ body {
   background-color: #0d0d0d; /* Fallback */
 }
 
-
-.background-overlay {
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; 
-  background-image: url('assets/liquid-glass-background.webp'); 
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  /* effetto filtro opaco */
-  filter: blur(8px) brightness(0.6) grayscale(0.3); 
-  -webkit-filter: blur(8px) brightness(0.6) grayscale(0.3);
-}
-
-
 .app-content {
   position: relative;
   z-index: 0; 

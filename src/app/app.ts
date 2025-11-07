@@ -1,7 +1,7 @@
 import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Auth, GoogleAuthProvider, signInWithPopup, signOut, user } from '@angular/fire/auth';
-import { RouterOutlet } from '@angular/router'; 
+import { RouterOutlet, RouterLink } from '@angular/router'; 
 import { SidebarComponent } from './sidebar/sidebar';
 
 @Component({
@@ -10,7 +10,8 @@ import { SidebarComponent } from './sidebar/sidebar';
   imports: [
     RouterOutlet,
     CommonModule, 
-    SidebarComponent
+    SidebarComponent,
+    RouterLink
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

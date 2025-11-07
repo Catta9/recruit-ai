@@ -1,1 +1,34 @@
-<p>cronologia works!</p>
+<div class="blurred-background"></div>
+
+<div class="cronologia-container">
+  <h2>Cronologia Analisi</h2>
+
+  @if (isLoading) {
+    <p>Caricamento cronologia...</p>
+  }
+
+  @if (error) {
+    <p class="error-message">{{ error }}</p>
+  }
+
+  @if (!isLoading && !error && analyses.length > 0) {
+    <div class="analysis-list">
+      @for (analysis of analyses; track analysis.id) {
+        <div class="analysis-card">
+          <h3>Punteggio: {{ analysis.matchScore }} / 100</h3>
+          <p><strong>JD:</strong> {{ analysis.jd_snippet }}</p>
+          <p><strong>CV:</strong> {{ analysis.cv_snippet }}</p>
+          <p class="summary">{{ analysis.summary }}</p>
+          <p class="date">
+            {{ analysis.createdAt.toDate() | date: 'dd/MM/yyyy HH:mm' }}
+          </p>
+          <button (click)="reuseJD(analysis)">Riutilizza questa JD</button>
+        </div>
+      }
+    </div>
+  }
+
+  @if (!isLoading && !error && analyses.length === 0) {
+    <p>Non hai ancora eseguito nessuna analisi.</p>
+  }
+</div>

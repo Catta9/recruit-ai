@@ -1,1 +1,15 @@
-<p>account works!</p>
+<div class="blurred-background"></div>
+<div class="account-container">
+  <h2>Il Mio Account</h2>
+
+  @if (user$ | async; as user) {
+    <div class="user-details">
+      <p><strong>Nome:</strong> {{ user.displayName }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+
+      <button (click)="logout()" class="btn-glass-logout">Logout</button>
+    </div>
+  } @else {
+    <p>Non sei connesso.</p>
+  }
+</div>

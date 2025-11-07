@@ -1,0 +1,67 @@
+.blurred-background {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  background-image: url('../../assets/liquid-glass-background.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-filter: blur(8px) brightness(0.6) grayscale(0.3);
+  filter: blur(8px) brightness(0.6) grayscale(0.3); 
+}
+
+.account-container {
+  display: flex;
+  padding: 20px;
+  color: #f0f0f0;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.account-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.user-details {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  border-radius: 15px; 
+  background-color: rgba(10, 10, 10, 0.45); 
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  font-family: inherit;
+  font-size: 1.1em;
+  color: #f5f5f5;
+  resize: vertical;
+  min-height: 300px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.user-details p {
+  font-size: 1.3rem;
+}
+
+/* Riusiamo lo stile del bottone di logout */
+.btn-glass-logout {
+  background: rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-glass-logout:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

@@ -1,5 +1,5 @@
 .sidebar-nav {
-  padding: 20px;
+padding: 80px 20px 20px 20px; 
 }
 
 .sidebar-nav ul {
@@ -29,7 +29,6 @@
 
 /* Stile per il link della pagina attiva */
 .sidebar-nav a.active {
-  background-color: #4285F4; 
+  background-color: #333;
   color: white;
-  font-weight: bold;
 }

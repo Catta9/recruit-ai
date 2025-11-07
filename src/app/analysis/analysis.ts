@@ -5,10 +5,12 @@ import { Functions, httpsCallable } from '@angular/fire/functions';
 import { Auth } from '@angular/fire/auth';
 import { Firestore, collection, addDoc, serverTimestamp } from '@angular/fire/firestore';
 import { Header } from '../header/header'; 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-analysis',
   standalone: true,
-  imports: [CommonModule, FormsModule, Header],
+  imports: [CommonModule, FormsModule, Header, ],
   templateUrl: './analysis.html',
   styleUrl: './analysis.css',
 })
@@ -26,11 +28,20 @@ export class Analysis {
   private readonly functions: Functions;
   private readonly firestore: Firestore;
   private readonly auth: Auth;
+  private readonly router: Router;
 
   constructor() {
     this.functions = inject(Functions);
     this.firestore = inject(Firestore);
     this.auth = inject(Auth);
+    this.router = inject(Router);
+
+    //Controlla lo stato del router all'avvio
+    const navigation = this.router.getCurrentNavigation();
+    const state = navigation?.extras.state as { jd: string };
+    if (state && state.jd) {
+      this.jobDescription = state.jd;
+    }
   }
 
   async analyze() {

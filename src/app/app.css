@@ -1,17 +1,13 @@
-/* stile per Sfuocare l'app */
 .main-app.blurred {
-  /* Prefissi per Safari */
   -webkit-filter: blur(8px) brightness(0.7);
   filter: blur(8px) brightness(0.7);
-  
-  -webkit-user-select: none; /* Prefisso per Safari */
+  -webkit-user-select: none; 
   user-select: none;
   
   pointer-events: none;
   transition: filter 0.3s ease-out;
 }
 
-/* Stile del PopUp Modale (CON PREFISSI) */
 .login-modal-backdrop {
   position: fixed;
   top: 0;
@@ -27,7 +23,6 @@
   z-index: 100;
 }
 
-/* Box interno del Modal */
 .login-modal-content {
   background: rgba(30, 30, 30, 0.75); 
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -46,8 +41,6 @@
   color: #ccc;
 }
 
-
-/* Stile Info Utente (Stato Loggato) */
 .user-info-container {
   position: absolute;
   top: 20px;   /* Stessa posizione del tuo header originale */
@@ -95,7 +88,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 15px 30px 15px 80px;
   width: 100%;
   box-sizing: border-box;
   position: relative; /* Cambiato da absolute */
@@ -105,30 +98,39 @@
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
-.menu-icon {
+.menu-icon-fixed {
+  position: fixed; /* Fisso sullo schermo */
+  top: 25px;
+  left: 30px;
   font-size: 24px;
   color: #f0f0f0;
   cursor: pointer;
+  z-index: 201; /* Sopra la sidebar (200) e il backdrop (199) */
+  transition: color 0.3s;
+}
+
+.menu-icon-fixed:hover {
+  font-size: 25px;
 }
 
 .navbar-logo {
-  height: 60px; 
-  width: 50px;
+  height: 50px; 
+  width: 40px;
+  margin-left: -5px;
 }
 
 .sidebar-container {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh; /* Tutta l'altezza */
-  width: 280px; /* Larghezza del menu */
-  background-color: #202124; /* Sfondo scuro (tipo Google) */
-  z-index: 200; /* Sopra tutto, tranne forse il modal di login */
+  height: 100vh; 
+  width: 280px; 
+  background-color: #202124; 
+  z-index: 200; 
   border-right: 1px solid #444;
-
   /* Animazione (opzionale, ma carina) */
   animation: slideIn 0.3s ease-out;
 }
@@ -139,5 +141,55 @@
   }
   to {
     transform: translateX(0);
+  }
+}
+
+.sidebar-backdrop {
+position: fixed;
+  top: 0;
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 199;
+
+  /* Sposta lo sfondo per non coprire la sidebar stessa */
+  left: 280px; 
+  width: calc(100% - 280px); 
+}
+
+.main-app {
+  /* Impostiamo la posizione relativa per permettere la transizione */
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  
+  /* L'animazione di "slittamento" */
+  transition: transform 0.3s ease-out;
+}
+
+.main-app.sidebar-open {
+  /* ...sposta l'intero blocco a destra di 280px */
+  transform: translateX(280px);
+}
+
+/* --- Responsive per Mobile --- */
+
+/* Applica queste regole solo su schermi larghi 768px o meno */
+@media (max-width: 768px) {
+
+  .user-info-container {
+    display: none;
+  }
+
+  /* Sposta il logo a destra */
+  .navbar {
+    justify-content: flex-end;
+    padding: 15px 40px;
+    padding-right: 40px; 
+  }
+
+  .main-app.sidebar-open {
+    transform: none; /* Annulla lo slittamento */
   }
 }
