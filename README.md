@@ -1,59 +1,24 @@
-# RecruitAi
+# RecruitAI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+Benvenuto nel repository di RecruitAI, un'applicazione web dedicata alla gestione intelligente dei processi di selezione del personale.
 
-## Development server
+## Contenuti
+- **Tecnologie**: Angular, TypeScript, Firebase.
+- **Funzionalità principali**: gestione delle candidature, analisi dei profili e monitoraggio delle posizioni aperte.
 
-To start a local development server, run:
-
+## Avvio rapido
 ```bash
-ng serve
+npm install
+npm run start
 ```
+Il comando avvia l'ambiente di sviluppo su `http://localhost:4200/`.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Script utili
+- `npm run build`: genera una build di produzione nella cartella `dist/`.
+- `npm run test`: esegue la suite di test unitari.
 
-## Code scaffolding
+## Contribuire
+Le proposte di miglioramento sono benvenute. Apri una issue o invia una pull request descrivendo la modifica proposta.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Licenza
+Questo progetto è distribuito con licenza MIT.
