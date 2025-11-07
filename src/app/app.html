@@ -1,16 +1,16 @@
 <span class="menu-icon-fixed" (click)="toggleSidebar()">☰</span>
 
-@if (isSidebarOpen()) {
-  <div class="sidebar-backdrop" (click)="toggleSidebar()"></div> 
-  
+@if (isSidebarOpen) {
+  <div class="sidebar-backdrop" (click)="toggleSidebar()"></div>
+
   <div class="sidebar-container">
-    <app-sidebar (linkClicked)="toggleSidebar()"></app-sidebar> 
+    <app-sidebar (linkClicked)="toggleSidebar()"></app-sidebar>
   </div>
 }
 
-<main class="main-app" 
+<main class="main-app"
       [class.blurred]="!(user$ | async)"
-      [class.sidebar-open]="isSidebarOpen()">
+      [class.sidebar-open]="isSidebarOpen">
   
   <nav class="navbar">
     <div class="navbar-left">
