@@ -28,27 +28,32 @@
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 3em; 
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: inline-block;            
+  background: linear-gradient(90deg, #ff69b4 0%, #ff69b4 35%,  #00bfff 75%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  color: transparent;
+  text-shadow: 0 0 0.01px rgba(0,0,0,0.01);
   margin-bottom: 20px;
 }
 
 .analysis-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-basis: 100vw;
   gap: 20px;
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.2); 
   border-radius: 15px; 
-  background-color: rgba(10, 10, 10, 0.45); 
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  padding: 25px;
   font-family: inherit;
   font-size: 1.1em;
   color: #f5f5f5;
   resize: vertical;
-  min-height: 300px;
-  max-width: 600px;
   text-align: center;
 }
 
@@ -59,11 +64,13 @@ h2 {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  flex-basis: 30vw;
+  max-height: 30vh;
 }
 
 .analysis-card h3 {
   margin-top: 0;
-  color: #4285F4;
+  color: #00bfff;
 }
 
 .analysis-card p {
@@ -102,4 +109,43 @@ h2 {
 .error-message {
   color: #E57373;
   font-weight: bold;
+}
+
+
+@media (max-width: 1000px) {
+  
+  .analysis-list {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px; 
+    font-size: 1.1em;
+    color: #f5f5f5;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .analysis-card {
+    display: flex;
+    flex-direction: column;
+    background: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 20px;
+    max-height: none;
+  }
+  h2 {
+    font-size: 2em; 
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: inline-block;            
+    background: linear-gradient(90deg, #ff69b4 0%, #ff69b4 45%,  #00bfff 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    color: transparent;
+    text-shadow: 0 0 0.01px rgba(0,0,0,0.01);
+    margin-bottom: 20px;
+  }
+
 }

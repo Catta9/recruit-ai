@@ -23,7 +23,17 @@
   width: 100%;
 }
 .account-container h2 {
-  font-size: 2rem;
+  font-size: 3em; 
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: inline-block;            
+  background: linear-gradient(90deg, #ff69b4 0%, #ff69b4 35%,  #00bfff 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  color: transparent;
+  text-shadow: 0 0 0.01px rgba(0,0,0,0.01);
   margin-bottom: 20px;
 }
 
