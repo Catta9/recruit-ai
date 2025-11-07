@@ -57,9 +57,10 @@ export class Cronologia {
     }
   }
 
-  // Funzione per riutilizzare una JD 
+  // Funzione per riutilizzare una JD
   reuseJD(analysis: any) {
     // Naviga alla pagina 'analisi' e passa la JD tramite lo "state" del router.
-    this.router.navigate(['/analisi'], { state: { jd: analysis.jd_snippet } }); 
+    const jdToReuse = analysis.jd || analysis.jd_snippet;
+    this.router.navigate(['/analisi'], { state: { jd: jdToReuse } });
   }
 }

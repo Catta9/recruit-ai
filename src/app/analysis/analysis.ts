@@ -73,11 +73,13 @@ export class Analysis {
       }
 
       const dataToSave = {
-        ...response.data, 
+        ...response.data,
         userId: user.uid,
         createdAt: serverTimestamp(),
         // Usa le variabili stringa
-        jd_snippet: this.jd.substring(0, 50) + "...", 
+        jd: this.jd,
+        cv: this.cv,
+        jd_snippet: this.jd.substring(0, 50) + "...",
         cv_snippet: this.cv.substring(0, 50) + "...",
       };
 
