@@ -16,7 +16,7 @@ if (!projectId) {
 const vertexAI = new VertexAI({ project: projectId, location: "us-central1" });
 
 //modello più economico e veloce per questo tipo di analisi
-const model = vertexAI.getGenerativeModel({ model: "gemini-1.5-flash-001" });
+const model = vertexAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
 
 // 2. Definisci la tua Cloud Function richiamabile dal frontend
 export const analyzeMatch = onCall(async (request) => {
