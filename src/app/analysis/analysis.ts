@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-analysis',
   standalone: true,
-  imports: [CommonModule, FormsModule, Header, ],
+  imports: [CommonModule, FormsModule, Header],
   templateUrl: './analysis.html',
-  styleUrl: './analysis.css',
+  styleUrls: ['./analysis.css'],
 })
 
 export class Analysis {
@@ -42,6 +42,10 @@ export class Analysis {
     if (state && state.jd) {
       this.jd = state.jd;
     }
+  }
+
+  trackByIndex(index: number, _item: unknown): number {
+    return index;
   }
 
   async analyze() {
