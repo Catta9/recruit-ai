@@ -1,4 +1,4 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Auth, GoogleAuthProvider, signInWithPopup, signOut, user } from '@angular/fire/auth';
 import { RouterOutlet, RouterLink } from '@angular/router'; 
@@ -18,8 +18,6 @@ import { Sidebar } from './sidebar/sidebar';
 })
 
 export class App {
-  protected readonly title = signal('recruit-ai');
-
   // Inietta il servizio di Autenticazione
   readonly auth: Auth = inject(Auth);
 
@@ -40,11 +38,10 @@ export class App {
   }
 
   // sidebar
-
-  isSidebarOpen = signal(false);
+  isSidebarOpen = false;
 
   toggleSidebar() {
-    this.isSidebarOpen.set(!this.isSidebarOpen());
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 
 }
