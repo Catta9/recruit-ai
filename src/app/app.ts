@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Auth, GoogleAuthProvider, signInWithPopup, signOut, user } from '@angular/fire/auth';
 import { RouterOutlet, RouterLink } from '@angular/router'; 
@@ -17,7 +17,7 @@ import { Sidebar } from './sidebar/sidebar';
   styleUrl: './app.css'
 })
 
-export class App {
+export class App implements OnInit {
   // Inietta il servizio di Autenticazione
   readonly auth: Auth = inject(Auth);
 
@@ -39,9 +39,34 @@ export class App {
 
   // sidebar
   isSidebarOpen = false;
+  isMobileNavbarActive = false;
+
+  private readonly mobileBreakpoint = 768;
+
+  ngOnInit(): void {
+    this.updateMobileNavbarState();
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.updateMobileNavbarState();
+  }
+
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    this.updateMobileNavbarState();
+  }
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
+  private updateMobileNavbarState(): void {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const isMobileViewport = window.innerWidth <= this.mobileBreakpoint;
+    this.isMobileNavbarActive = isMobileViewport && window.scrollY > 0;
+  }
 }

@@ -83,15 +83,29 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 12px;
   padding: 15px 30px 15px 80px;
   width: 100%;
   box-sizing: border-box;
-  position: relative; /* Cambiato da absolute */
-  z-index: 50;
+  position: relative;
+  z-index: 120;
+  background: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.mobile-navbar-scrolled {
+  background: rgba(0, 0, 0, 0.92);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(6px);
 }
 
 .navbar-left {
@@ -100,19 +114,21 @@
   gap: 10px;
 }
 
-.menu-icon-fixed {
-  position: fixed; /* Fisso sullo schermo */
+.menu-icon {
+  position: fixed;
   top: 25px;
   left: 30px;
   font-size: 24px;
   color: #f0f0f0;
   cursor: pointer;
-  z-index: 201; /* Sopra la sidebar (200) e il backdrop (199) */
-  transition: color 0.3s;
+  z-index: 201;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.menu-icon-fixed:hover {
-  font-size: 25px;
+.menu-icon:hover,
+.menu-icon:focus {
+  color: #ffffff;
+  transform: scale(1.05);
 }
 
 .navbar-logo {
@@ -180,11 +196,18 @@ position: fixed;
     display: none;
   }
 
-  /* Sposta il logo a destra */
   .navbar {
-    justify-content: flex-end;
-    padding: 15px 40px;
-    padding-right: 40px; 
+    justify-content: space-between;
+    padding: 15px 20px;
+    gap: 16px;
+  }
+
+  .menu-icon {
+    position: static;
+  }
+
+  .navbar.mobile-navbar-scrolled {
+    z-index: 250;
   }
 
   .main-app.sidebar-open {
