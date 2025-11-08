@@ -12,7 +12,7 @@ La Web application è stata realizzata intereamente con lo stack che mette a dis
 - front-end efficiente, moderno e pulito con il framework Angular;
 - memorizzazione dei dati in un database sicuro Firestore dello stack Google;
 - integrazione a basso costo con molti modelli di AI di Google e altri provider;
-- server, DNS e Dominio forniti da Google, garantendo velocità di caricamento e affidabilità.
+- distribuzione gestita con Firebase Hosting, con certificati SSL automatici e routing globale.
 
 ## Contenuti
 - **Tecnologie**: Angular, TypeScript, Firebase, Gemioni API.
@@ -25,6 +25,13 @@ npm run start
 ```
 Il comando avvia l'ambiente di sviluppo su `http://localhost:4200/`.
 
+## Visualizzazione
+- **Produzione**: quando l'app è distribuita su Firebase Hosting è disponibile all'indirizzo https://recruit-ai-project-735fe.web.app (redirect automatico anche su `https://recruit-ai-project-735fe.firebaseapp.com`).
+- **Locale**: eseguire la procedura di [avvio rapido](#avvio-rapido) ed aprire il browser su `http://localhost:4200/`.
+
 ## Script utili
 - `npm run build`: genera una build di produzione nella cartella `dist/`.
 - `npm run test`: esegue la suite di test unitari.
+
+## Prossimi step
+- **Possibilità di inserire un CV in formato PDF**: sarà necessario estendere il front-end per gestire l'upload dei file, salvare i documenti (ad esempio su Firebase Storage) e introdurre un servizio di estrazione del testo (es. Cloud Functions con integrazione a Document AI o librerie dedicate) per alimentare l'analisi dell'AI.
