@@ -141,10 +141,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh; 
-  width: 280px; 
-  background-color: #202124; 
-  z-index: 200; 
+  height: 100vh;
+  width: 280px;
+  background-color: #202124;
+  z-index: 300;
   border-right: 1px solid #444;
   /* Animazione (opzionale, ma carina) */
   animation: slideIn 0.3s ease-out;
@@ -162,11 +162,11 @@
 .sidebar-backdrop {
 position: fixed;
   top: 0;
-  left: 0; 
-  width: 100%; 
+  left: 0;
+  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 199;
+  z-index: 299;
 
   /* Sposta lo sfondo per non coprire la sidebar stessa */
   left: 280px; 
