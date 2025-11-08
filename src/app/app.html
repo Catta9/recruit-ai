@@ -1,5 +1,3 @@
-<span class="menu-icon-fixed" (click)="toggleSidebar()">☰</span>
-
 @if (isSidebarOpen) {
   <div class="sidebar-backdrop" (click)="toggleSidebar()"></div>
 
@@ -11,12 +9,22 @@
 <main class="main-app"
       [class.blurred]="!(user$ | async)"
       [class.sidebar-open]="isSidebarOpen">
-  
-  <nav class="navbar">
+
+  <nav class="navbar" [class.mobile-navbar-scrolled]="isMobileNavbarActive">
+    <span
+      class="menu-icon"
+      (click)="toggleSidebar()"
+      (keydown.enter)="toggleSidebar()"
+      (keydown.space)="toggleSidebar(); $event.preventDefault()"
+      aria-label="Apri il menu di navigazione"
+      role="button"
+      tabindex="0">
+      ☰
+    </span>
     <div class="navbar-left">
       <a routerLink="/analisi">
         <img src="assets/logo.png" alt="Recruit AI Logo" class="navbar-logo">
-      </a>    
+      </a>
     </div>
   </nav>
 
